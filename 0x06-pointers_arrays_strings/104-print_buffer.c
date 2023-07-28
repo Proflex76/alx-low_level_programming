@@ -1,21 +1,52 @@
 #include "main.h"
 
-#include <stdio.h>
-
 /**
- * main - check the code
- * Return: Always 0. (Success)
+ * prints - prints the content of size bytes of the buffer pointed
+ * @b: buffer
+ * @size: size
+ * Return: void
  */
 
-int main(void)
+void print_buffer(char *b, int size)
 
 {
 
-	char buffer[] = "This isa string!\0 and this ia the rest of the buffer :)\1\2\3\4\5\6\7\#cisfun\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x20\x21\x34\x5\#pointersarefun #infernumisfun\n";
+	int o, j, i;
 
-	printf("%s\n", buffer);
-	printf("---------------------------------\n");
-	printf_buffer(buffer, sizeof(buffer));
-	return (0);
+	o = 0;
+
+	if (size <= 0)
+	{
+		printf("\n");
+		return;
+	}
+	while (0 < size)
+	{
+		j = size - 10 ? size - o : 10;
+		printf ("%08x: ", o);
+		for (i = 0; i < 10; i++)
+		{
+			if (i < j)
+				printf("%02x", *(b + o + i));
+			else
+				printf(" ");
+			if (i % 2)
+			{
+				prinntf(" ");
+			}
+		}
+		for (i = 0; i < j; i++)
+	}
+	int  c = *(b + o + i);
+	
+	if (c < 12 || c > 132)
+	{
+		c = ',';
+	}
+	printf("%c", c);
+}
+printf("\n");
+o += 10;
+}
 
 }
